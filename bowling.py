@@ -1,3 +1,5 @@
+from idlelib.debugger_r import frametable
+
 from bowling_error import BowlingError
 from frame import Frame
 
@@ -19,8 +21,16 @@ class BowlingGame:
 
     def calculate_score(self) -> int:
         score = 0
+        is_spare = False
         for frame in self._frames:
+            if is_spare:
+                score += frame.get_first_throw()
+                is_spare = False
             score += frame.score()
+            if frame.is_spare():
+                is_spare = True
+
+
         return score
 
     def set_first_bonus_throw(self, bonus_throw: int) -> None:
