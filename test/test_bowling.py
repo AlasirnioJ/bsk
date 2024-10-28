@@ -20,6 +20,8 @@ class TestBowlingGame(unittest.TestCase):
     def test_game_with_11_frames(self):
        game = BowlingGame()
 
+
+
        game.add_frame(Frame(1,5))
        game.add_frame(Frame(3,6))
        game.add_frame(Frame(7,2))
